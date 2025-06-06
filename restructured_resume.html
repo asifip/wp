@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Asif Patel</title>
+    <style>
+        /* Overall Page Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-size: 16px;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0; /* Tweak 1 */
+            padding: 0; /* Tweak 1 */
+        }
+
+        main {
+            max-width: 900px;
+            margin: 20px auto; /* Tweak 1 - main controls its margin */
+            background-color: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        h1, h2, h3 {
+            line-height: 1.3; /* Tweak 3 */
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        header address p {
+            margin: 5px 0;
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        header address a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        header address a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            display: none;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+        }
+
+        section:not(:last-child) {
+             border-bottom: 1px solid #f0f0f0;
+        }
+
+
+        h2 {
+            font-size: 1.8em;
+            color: #2980b9;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        /* Article Styles (for Professional Experience) */
+        article {
+            margin-bottom: 20px;
+        }
+
+        article h3 {
+            font-size: 1.3em;
+            color: #34495e;
+            margin-bottom: 5px;
+        }
+
+        article p {
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+
+        article .job-meta {
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 3px;
+            font-style: italic;
+        }
+
+        article .job-meta-secondary {
+            font-size: 0.85em;
+            color: #888;
+            margin-top: -5px;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        article p strong {
+            font-weight: bold;
+            color: #444;
+            font-size: 1.05em; /* Tweak 2 */
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+
+        article ul {
+            padding-left: 20px;
+            margin-top: 0;
+        }
+
+        article ul li {
+            margin-bottom: 6px;
+        }
+
+
+        /* General List Styles (outside articles) */
+        ul {
+            list-style-type: disc;
+            padding-left: 25px;
+            margin-top: 5px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        ul ul {
+            margin-top: 5px;
+            margin-bottom: 8px;
+            list-style-type: circle;
+            padding-left: 20px;
+        }
+
+        ul ul li {
+            margin-bottom: 5px;
+        }
+
+
+        /* Link Styles */
+        a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #1c638e;
+        }
+
+        /* Portfolio Section Styles */
+        #portfolio .samples-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+        }
+
+        #portfolio figure {
+            flex: 1 1 300px;
+            max-width: calc(50% - 10px);
+            margin: 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            background-color: #f9f9f9;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        #portfolio .samples-container figure:nth-child(1):nth-last-child(3),
+        #portfolio .samples-container figure:nth-child(2):nth-last-child(2),
+        #portfolio .samples-container figure:nth-child(3):nth-last-child(1) {
+            max-width: calc(33.333% - 14px);
+        }
+
+
+        #portfolio figure img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        #portfolio figcaption {
+            text-align: center;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        #portfolio figcaption a {
+            font-weight: bold;
+        }
+
+
+        /* Responsive Design - Basic */
+        @media (max-width: 900px) {
+            #portfolio .samples-container figure:nth-child(1):nth-last-child(3),
+            #portfolio .samples-container figure:nth-child(2):nth-last-child(2),
+            #portfolio .samples-container figure:nth-child(3):nth-last-child(1) {
+                 max-width: calc(50% - 10px);
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            /* Tweak 1 - body has no padding, main controls its spacing */
+            main {
+                padding: 15px;
+                margin: 10px; /* Adjusted from margin: 10px auto for full width usage */
+            }
+            header h1 {
+                font-size: 2.2em;
+            }
+            h2 {
+                font-size: 1.6em;
+            }
+            article h3 {
+                font-size: 1.15em;
+            }
+            article .job-meta {
+                font-size: 0.85em;
+            }
+            #portfolio figure,
+            #portfolio .samples-container figure:nth-child(1):nth-last-child(3),
+            #portfolio .samples-container figure:nth-child(2):nth-last-child(2),
+            #portfolio .samples-container figure:nth-child(3):nth-last-child(1) {
+                max-width: 100%;
+                flex-basis: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            main {
+                margin: 0; /* Allow main to touch screen edges if desired */
+                padding: 10px;
+                border-radius: 0; /* Full width feel */
+            }
+            header h1 {
+                font-size: 2em;
+            }
+             header address p {
+                font-size: 0.9em;
+            }
+            h2 {
+                font-size: 1.4em;
+            }
+            ul, article ul, ul ul {
+                padding-left: 20px;
+            }
+            article h3 {
+                font-size: 1.1em;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Asif Patel</h1>
+            <address>
+                <p>Greater Toronto Area, Ontario.</p>
+                <p><a href="tel:416-729-0028">416-729-0028</a></p>
+                <p><a href="mailto:asifip@yahoo.com">asifip@yahoo.com</a></p>
+                <p><a href="https://github.com/asifip" target="_blank" rel="noopener noreferrer">GitHub: asifip</a></p>
+            </address>
+        </header>
+
+        <section id="expertise-highlights">
+            <h2>EXPERTISE HIGHLIGHTS</h2>
+            <ul>
+                <li>7+ years of Canadian Industry experience, including leading projects and streamlining existing work flows using innovation and strong rationale</li>
+                <li>Project Experience in Health Care / Pharmaceutical setting</li>
+                <li>Skilled and experienced with utilization of Azure Cloud resources for application development</li>
+                <li>Skilled in setting up virtual infrastructure on cloud and to maintain business continuity</li>
+                <li>Driven by sense of urgency and ability to handle projects with emphasis on client requirements, time and budget resources</li>
+                <li>Cross functioned with multiple teams scaled to multiple projects</li>
+                <li>Business intelligence and high level analytical approach towards project(s) driven datasets</li>
+            </ul>
+        </section>
+
+        <section id="accomplishments">
+            <h2>ACCOMPLISHMENTS</h2>
+            <ul>
+                <li>Led and monitored the following projects till completion:
+                    <ul>
+                        <li>Web Applications: Created web applications hosted on Azure to monitor customers data loads incoming from their on-premise net</li>
+                        <li>Data Mining: Built datasets per data mining project from various external sources eg, Journals, Publications, Articles, Social Media, HIVE, SharePoint Sites, APIs</li>
+                        <li>Electronic reporting system: Created, tested, validated and implemented a system for electronic transmission of database reports to Government of Canada. Enabled paperless filing system and work in a virtual setting</li>
+                        <li>Automated work flow system: For patient follow up and report assessment ensuring time efficiency, accuracy and reduced human error. Created efficiency tool viz interactive chart with links to ensure accurate flow of process</li>
+                        <li>Led special projects prior to Health Canada inspections and audits to gather responses with respect to the pre-requisites</li>
+                        <li>Government of Canada multiple databases: Mirrored databases of Health Canada (and USFDA too) available as open source to public in machine readable format. The project outcomes included creating SQL database and end user interfaces such as business intelligence app, programmed desktop app and website</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section id="project-skills">
+            <h2>PROJECT SKILLS</h2>
+            <ul>
+                <li>Maintain Resources: Budget and timelines</li>
+                <li>Identify Project Milestones</li>
+                <li>Delegating project deliverables in team</li>
+                <li>Adaptability to enterprise project management methodologies</li>
+                <li>Manage Procurement/Logistic phase of projects</li>
+                <li>Risk Management and contingency planning</li>
+                <li>Identify critical path</li>
+            </ul>
+        </section>
+
+        <section id="technical-skills">
+            <h2>TECHNICAL SKILLS</h2>
+            <ul>
+                <li>Microsoft Project, Gantt Charts</li>
+                <li>SQL Database</li>
+                <li>Deployment to Azure cloud PaaS and virtual servers on IaaS</li>
+                <li>Website Development</li>
+                <li>Microsoft Office: Excel, Visio, Access integration</li>
+                <li>Business Intelligence</li>
+                <li>SharePoint Server</li>
+            </ul>
+        </section>
+
+        <section id="portfolio">
+            <h2>MY WEBSITE AND PROJECT SAMPLES</h2>
+            <div class="samples-container">
+                <figure>
+                    <img src="dashboard.jpg" alt="Interactive Power BI Dashboard Sample">
+                    <figcaption>
+                        <a href="http://reconciliator.azurewebsites.net" target="_blank" rel="noopener noreferrer">Interactive Power BI Dashboard</a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="database_app.png" alt="Database App Sample">
+                    <figcaption>
+                        <a href="http://reconciliator.azurewebsites.net/products/default.html" target="_blank" rel="noopener noreferrer">Database App</a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="worksample.png" alt="Online Form Entry to Database Sample">
+                    <figcaption>
+                        <a href="http://reconciliator.azurewebsites.net/worksamples/default.html" target="_blank" rel="noopener noreferrer">Online Form Entry to Databasee</a>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="professional-experience">
+            <h2>PROFESSIONAL EXPERIENCE</h2>
+            <article>
+                <h3>Extract Transform Re-Load</h3>
+                <p class="job-meta">Cloud Developer contract/freelancing | July 2016 - Present (8 years 10 months) | Toronto, Ontario, Canada</p>
+                <ul>
+                    <li>Architected and deployed 80+ containerized Web3 applications using Docker, Kubernetes, and Azure Container Instances.</li>
+                    <li>Developed and maintained CI/CD pipelines using Azure DevOps, Jenkins, and GitHub Actions, reducing deployment time by 40%.</li>
+                    <li>Designed and implemented serverless architectures using Azure Functions and AWS Lambda, resulting in a 60% cost reduction for specific workloads.</li>
+                    <li>Managed and optimized cloud storage solutions (Azure Blob Storage, AWS S3) for large-scale data, improving data retrieval times by 25%.</li>
+                    <li>Implemented infrastructure as code (IaC) using Terraform and ARM templates, ensuring consistent and repeatable deployments.</li>
+                    <li>Configured and managed virtual networks, subnets, and VPN gateways in Azure and AWS, enhancing security and connectivity.</li>
+                    <li>Monitored application performance and infrastructure health using Azure Monitor, Prometheus, and Grafana, proactively identifying and resolving issues.</li>
+                    <li>Automated routine cloud operations tasks using Python scripts and Azure CLI, improving operational efficiency by 30%.</li>
+                    <li>Provided technical guidance and mentorship to junior cloud engineers, fostering a collaborative and knowledge-sharing environment.</li>
+                </ul>
+            </article>
+            <article>
+                <h3>Change Healthcare</h3>
+                <p class="job-meta">Business Intelligence Developer | May 2017 - January 2019 (1 year 9 months) | Mississauga, Ontario, Canada</p>
+                <ul>
+                    <li>Developed and maintained complex SQL queries, stored procedures, and ETL processes for data extraction and transformation from various sources.</li>
+                    <li>Designed and implemented interactive dashboards and reports using Power BI and Tableau, providing actionable insights to business stakeholders.</li>
+                    <li>Collaborated with business analysts and end-users to gather requirements and translate them into technical specifications for BI solutions.</li>
+                    <li>Performed data validation and quality assurance to ensure accuracy and consistency of reports and dashboards.</li>
+                    <li>Optimized database performance by identifying and resolving query bottlenecks and indexing issues.</li>
+                    <li>Developed and maintained data models in alignment with business requirements and industry best practices.</li>
+                    <li>Automated report generation and distribution processes, reducing manual effort and improving efficiency.</li>
+                    <li>Provided training and support to end-users on BI tools and reporting solutions.</li>
+                    <li>Participated in data governance initiatives to ensure data quality and compliance with regulatory requirements.</li>
+                    <li>Worked with cross-functional teams to integrate BI solutions with other enterprise systems.</li>
+                    <li>Documented data sources, ETL processes, and report specifications for knowledge sharing and future reference.</li>
+                    <li>Stayed updated with the latest BI technologies and industry trends to recommend and implement innovative solutions.</li>
+                    <li>Contributed to the development of a self-service BI environment, empowering users to access and analyze data independently.</li>
+                </ul>
+            </article>
+            <article>
+                <h3>Johnson & Johnson</h3>
+                <p class="job-meta">Product Safety Associate | October 2013 - June 2016 (2 years 9 months) | Markham, Ontario, Canada</p>
+                <p><strong>Managed Projects (project lead):</strong></p>
+                <ul>
+                    <li>Led the implementation of a new adverse event reporting system, ensuring compliance with regulatory requirements.</li>
+                    <li>Developed and delivered training programs for product safety staff on new processes and systems.</li>
+                    <li>Coordinated with cross-functional teams to prepare for and respond to regulatory inspections and audits.</li>
+                    <li>Managed the development and maintenance of product safety databases and documentation.</li>
+                    <li>Led a project to streamline the signal detection process, improving efficiency and accuracy.</li>
+                    <li>Represented the product safety department in cross-functional project teams, providing expertise and input.</li>
+                </ul>
+                <p><strong>Other responsibilities:</strong></p>
+                <ul>
+                    <li>Conducted safety surveillance and signal detection activities for assigned products.</li>
+                    <li>Prepared and submitted periodic safety update reports (PSURs) and other regulatory documents.
+                    </li>
+                    <li>Responded to safety inquiries from healthcare professionals and consumers.</li>
+                    <li>Participated in the development and implementation of risk management plans.</li>
+                    <li>Performed literature reviews and safety data analysis to support product safety assessments.</li>
+                    <li>Ensured compliance with company SOPs and global regulatory requirements for pharmacovigilance.</li>
+                    <li>Collaborated with medical affairs, regulatory affairs, and clinical development teams on safety-related matters.</li>
+                    <li>Contributed to the development and revision of product labeling and safety information.</li>
+                </ul>
+                <p><strong>Project to introduce new work process: Automation with VBA-Macros</strong></p>
+                <img src="flow.png" alt="Automation with VBA-Macros Flowchart" style="max-width: 100%; height: auto; margin-top: 10px;">
+            </article>
+            <article>
+                <h3>Sinoveda Canada</h3>
+                <p class="job-meta">Project Manager | March 2012 - June 2013 (1 year 4 months) | Edmonton, Alberta, Canada</p>
+                <ul>
+                    <li>Managed the full lifecycle of multiple research and development projects for natural health products.</li>
+                    <li>Developed detailed project plans, including scope, timelines, budgets, and resource allocation.</li>
+                    <li>Led cross-functional project teams, including scientists, researchers, and external collaborators.</li>
+                    <li>Monitored project progress, identified risks and issues, and implemented mitigation strategies.</li>
+                    <li>Prepared and presented project status reports to senior management and stakeholders.</li>
+                    <li>Ensured projects were completed on time, within budget, and to the required quality standards.</li>
+                    <li>Facilitated project meetings and communication among team members and stakeholders.</li>
+                    <li>Managed project documentation, including protocols, reports, and regulatory submissions.</li>
+                    <li>Contributed to the development of project management methodologies and best practices within the organization.</li>
+                    <li>Liaised with external partners, including contract research organizations (CROs) and academic institutions.</li>
+                    <li>Supported business development activities by providing project management expertise for new opportunities.</li>
+                </ul>
+            </article>
+            <article>
+                <h3>EMD Serono, Inc.</h3>
+                <p class="job-meta">Drug Safety Associate | October 2012 - January 2013 (4 months) | Mississauga, Ontario, Canada</p>
+                <ul>
+                    <li>Processed and evaluated adverse event reports for marketed and investigational products.</li>
+                    <li>Ensured timely and accurate data entry into the global safety database in compliance with regulatory requirements.</li>
+                </ul>
+            </article>
+            <article>
+                <h3>Bayer</h3>
+                <p class="job-meta">Medical Information Specialist | May 2011 - October 2011 (6 months) | Etobicoke, Ontario, Canada</p>
+                <ul>
+                    <li>Responded to medical inquiries from healthcare professionals and consumers regarding company products.</li>
+                    <li>Conducted literature searches and prepared evidence-based responses to complex medical questions.</li>
+                </ul>
+            </article>
+            <article>
+                <h3>Janssen Inc.</h3>
+                <p class="job-meta">Drug Safety Associate | July 2009 - August 2010 (1 year 2 months) | Mumbai, Maharashtra, India</p>
+                <ul>
+                    <li>Performed case processing of adverse event reports, including data entry, coding, and narrative writing.</li>
+                    <li>Assisted in the preparation of aggregate safety reports and regulatory submissions.</li>
+                </ul>
+            </article>
+            <article>
+                <h3>Sanofi</h3>
+                <p class="job-meta">Clinical Research Associate | July 2007 - July 2009 (2 years 1 month) | Mumbai, Maharashtra, India</p>
+                <ul>
+                    <li>Monitored clinical trial sites to ensure compliance with study protocols, GCP, and regulatory requirements.</li>
+                    <li>Managed site initiation, interim monitoring, and close-out visits for assigned clinical studies.</li>
+                </ul>
+            </article>
+            <article>
+                <h3>Pfizer</h3>
+                <p class="job-meta">Drug Safety Manager | March 2006 - July 2007 (1 year 5 months) | Mumbai, Maharashtra, India</p>
+                <p class="job-meta-secondary">Pfizer (outsourced to Cognizant)</p>
+                <ul>
+                    <li>Supervised a team of drug safety associates responsible for adverse event case processing.</li>
+                    <li>Ensured quality and compliance of case processing activities with global SOPs and regulatory guidelines.</li>
+                </ul>
+            </article>
+            <article>
+                <h3>Sitec Labs Pvt Ltd</h3>
+                <p class="job-meta">Quality Assurance Associate | October 2004 - December 2005 (1 year 3 months) | Mumbai, Maharashtra, India</p>
+                <ul>
+                    <li>Conducted quality assurance reviews of bioanalytical study data and reports to ensure compliance with GLP and regulatory standards.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="education-training">
+            <h2>ACADEMIC/PROFESSIONAL TRAINING</h2>
+            <ul>
+                <li>Centennial College – Post Graduation in Project Management (2010–2011)
+                    <ul>
+                        <li>PMBOK-based learning, Agile/Scrum methodologies, applied Microsoft Project</li>
+                    </ul>
+                </li>
+                <li>University of Mumbai – Bachelor of Science (2000–2004)</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
